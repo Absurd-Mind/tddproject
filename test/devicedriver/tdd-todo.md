@@ -5,4 +5,4 @@
 - [ ] write not finished
 - [ ] return wrong data after write
 - [ ] error codes
-- [ ] addresses should be unsigned
+- [x] addresses should be unsigned
