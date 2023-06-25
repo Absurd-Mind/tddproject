@@ -1,1 +1,1 @@
-add_library(devicedriver DeviceDriver.cpp FlashMemory.hpp)
+add_library(devicedriver DeviceDriver.hpp DeviceDriver.cpp FlashMemory.hpp)

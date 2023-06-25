@@ -1,20 +1,13 @@
-
-
 #include "FlashMemory.hpp"
+#include "DeviceDriver.hpp"
 
-class DeviceDriver {
-public:
-    DeviceDriver(FlashMemory& flashMemory) : flashMemory(flashMemory) {
+DeviceDriver::DeviceDriver(FlashMemory& flashMemory) : flashMemory(flashMemory) {
+}
 
-    }
+char DeviceDriver::read(long address) {
+    return flashMemory.read(address);
+}
 
-    char read(long address) {
-        return flashMemory.read(address);
-    }
-
-    void write(long address, char data) {
-        flashMemory.write(address, data);
-    }
-private:
-    FlashMemory& flashMemory;
-};
+void DeviceDriver::write(long address, char data) {
+    flashMemory.write(address, data);
+}
