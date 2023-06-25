@@ -13,4 +13,7 @@ TEST_CASE("write") {
     DeviceDriver deviceDriver;
 
     deviceDriver.write(0x13, 37);
+    auto result = deviceDriver.read(0x13);
+
+    REQUIRE(result == 37);
 }
