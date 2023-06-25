@@ -4,10 +4,10 @@
 DeviceDriver::DeviceDriver(FlashMemory& flashMemory) : flashMemory(flashMemory) {
 }
 
-char DeviceDriver::read(long address) {
+unsigned char DeviceDriver::read(long address) {
     return flashMemory.read(address);
 }
 
-void DeviceDriver::write(long address, char data) {
+void DeviceDriver::write(long address, unsigned char data) {
     flashMemory.write(address, data);
 }

@@ -6,8 +6,8 @@ class DeviceDriver {
 public:
     DeviceDriver(FlashMemory& flashMemory);
 
-    virtual char read(long address);
-    virtual void write(long address, char data);
+    virtual unsigned char read(long address);
+    virtual void write(long address, unsigned char data);
 
 private:
     FlashMemory& flashMemory;
