@@ -1,7 +1,8 @@
 # TDD DeviceDriver Todo
 
 - [ ] Range in initializing, what is a meaningful upper bound?
-- [ ] Programming mode
+- [x] Programming mode
 - [ ] write not finished
 - [ ] return wrong data after write
 - [ ] error codes
+- [ ] addresses should be unsigned
