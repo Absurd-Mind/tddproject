@@ -1,0 +1,10 @@
+# CMake
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+
+# conan
+build/
+
+# IDE
+.vscode
