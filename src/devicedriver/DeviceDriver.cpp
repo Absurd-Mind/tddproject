@@ -9,5 +9,6 @@ unsigned char DeviceDriver::read(long address) {
 }
 
 void DeviceDriver::write(long address, unsigned char data) {
+    flashMemory.write(0x00, 0x40);
     flashMemory.write(address, data);
 }
