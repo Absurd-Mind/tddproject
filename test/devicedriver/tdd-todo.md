@@ -7,3 +7,4 @@
 - [ ] error codes
 - [x] addresses should be unsigne
 - [ ] add Sections to generate tests
+- [ ] using address 0 creates problems
