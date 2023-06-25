@@ -36,3 +36,25 @@ TEST_CASE("reading data after writing returns the same data") {
     Verify(Method(flashMemory, write).Using(0x00, 0x40)).Once();
     Verify(Method(flashMemory, write).Using(address, data)).Once();
 }
+
+TEST_CASE("Ready bit is only set on the second read") {
+    // Arrange
+    unsigned long address = 0x04;
+    unsigned char data = 0x37;
+    Mock<FlashMemory> flashMemory;
+    When(Method(flashMemory, read).Using(address)).Return(data);
+    When(Method(flashMemory, read).Using(0x00)).Return(0);
+    When(Method(flashMemory, read).Using(0x00)).Return(1 << 6);
+    When(Method(flashMemory, write)).AlwaysReturn();
+    DeviceDriver deviceDriver(flashMemory.get());
+
+    // Act
+    deviceDriver.write(address, data);
+    auto result = deviceDriver.read(address);
+
+    // Assert
+    REQUIRE(result == data);
+    Verify(Method(flashMemory, write).Using(0x00, 0x40)).Once();
+    Verify(Method(flashMemory, write).Using(address, data)).Once();
+    Verify(Method(flashMemory, read).Using(0x00)).Exactly(2);
+}
