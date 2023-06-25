@@ -3,4 +3,6 @@
 
 TEST_CASE("drive device") {
     DeviceDriver deviceDriver;
+
+    auto result = deviceDriver.read(0x03);
 }
