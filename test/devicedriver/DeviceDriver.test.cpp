@@ -42,12 +42,15 @@ TEST_CASE("reading data after writing returns the same data") {
     }
 }
 
-TEST_CASE("Ready bit is only set on the second read") {
+TEST_CASE("Ready bit is only set on the xth read") {
     // Arrange
     unsigned long address = 0x04;
     unsigned char data = 0x37;
     Mock<FlashMemory> flashMemory;
     When(Method(flashMemory, read).Using(0x00))
+        .Return(0)
+        .Return(0)
+        .Return(0)
         .Return(0)
         .Return(1 << 6);
     When(Method(flashMemory, write)).AlwaysReturn();
@@ -59,5 +62,5 @@ TEST_CASE("Ready bit is only set on the second read") {
     // Assert
     Verify(Method(flashMemory, write).Using(0x00, 0x40)).Once();
     Verify(Method(flashMemory, write).Using(address, data)).Once();
-    Verify(Method(flashMemory, read).Using(0x00)).Exactly(2);
+    Verify(Method(flashMemory, read).Using(0x00)).Exactly(5);
 }

@@ -12,7 +12,7 @@ void DeviceDriver::write(unsigned long address, unsigned char data) {
     flashMemory.write(CONTROL_ADDRESS, PROGRAM);
     flashMemory.write(address, data);
     auto result = flashMemory.read(CONTROL_ADDRESS);
-    if ((result & (1 << 6)) == 0) {
+    while ((result & (1 << 6)) == 0) {
         result = flashMemory.read(CONTROL_ADDRESS);
     }
 }
