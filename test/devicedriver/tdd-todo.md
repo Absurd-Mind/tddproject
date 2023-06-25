@@ -6,5 +6,5 @@
 - [ ] return wrong data after write
 - [ ] error codes
 - [x] addresses should be unsigne
-- [ ] add Sections to generate tests
+- [x] add Sections to generate tests
 - [ ] using address 0 creates problems
