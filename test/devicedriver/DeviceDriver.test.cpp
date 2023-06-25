@@ -33,4 +33,6 @@ TEST_CASE("reading data after writing returns the same data") {
 
     // Assert
     REQUIRE(result == data);
+    Verify(Method(flashMemory, write).Using(0x00, 0x40)).Once();
+    Verify(Method(flashMemory, write).Using(address, data)).Once();
 }
