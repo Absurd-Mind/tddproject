@@ -12,7 +12,7 @@ class tddprojectRecipe(ConanFile):
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*", "include/*", "test/*"
-    test_requires = "catch2/3.3.2"
+    test_requires = "catch2/3.3.2", "fakeit/2.4.0"
 
     def layout(self):
         cmake_layout(self)

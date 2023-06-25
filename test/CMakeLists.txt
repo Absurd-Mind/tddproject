@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
 project(PackageTest CXX)
 
+find_package(FakeIt REQUIRED CONFIG)
 find_package(Catch2 REQUIRED CONFIG)
+
 include_directories(${Catch2_INCLUDE_DIR})
-# target_link_libraries(test_hello GTest::gtest GTest::gtest_main hello)
+include_directories(${fakeit_INCLUDE_DIR})
 
 add_subdirectory(bowling/)
 add_subdirectory(devicedriver/)
